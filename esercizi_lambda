@@ -1,0 +1,12 @@
+#Scrivi una lambda function che prenda un parametro e restituisca il quadrato del numero.
+x = 3
+quadrato = lambda x : x**2
+
+print(quadrato(x))
+
+#Scrivi una lambda function che prenda una lista e restituisca una lista di tutti gli elementi della lista originale moltiplicati per 2.
+
+l = [1,2,3,4,5,6,7,8,9,12]
+
+l2 = lambda l : [x * 2 for x in l]
+print(l2(l))

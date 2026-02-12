@@ -1,0 +1,64 @@
+# Product
+class ModuloSpaziale:
+  def __init__(self, nome, tipo, funzione):
+    self.nome = nome
+    self.tipo = tipo
+    self.funzione = funzione
+
+
+# Concrete Product
+class ModuloEsplorazione(ModuloSpaziale):
+  def __init__(self):
+    super().__init__("Modulo Esplorazione", "Esplorazione", "Esplorare nuovi settori spaziali")
+
+class ModuloDifesa(ModuloSpaziale):
+  def __init__(self):
+    super().__init__("Modulo Difesa", "Difesa", "Proteggere l'astronave da minacce")
+
+class ModuloRicerca(ModuloSpaziale):
+  def __init__(self):
+    super().__init__("Modulo Ricerca", "Ricerca", "Condurre ricerche scientifiche")
+
+class ModuloSupportoVitale(ModuloSpaziale):
+  def __init__(self):
+    super().__init__("Modulo Supporto Vitale", "Supporto Vitale", "Fornire supporto vitale all'equipaggio")
+
+
+from abc import ABC, abstractmethod
+
+# Creator
+class Creator(ABC):
+  @abstractmethod
+  def crea_modulo(self, tipo_modulo):
+    pass
+
+# Concrete Creator
+class FactoryModuliSpaziali(Creator):
+  def crea_modulo(self, tipo_modulo):
+    if tipo_modulo == "Esplorazione":
+      return ModuloEsplorazione()
+    elif tipo_modulo == "Difesa":
+      return ModuloDifesa()
+    elif tipo_modulo == "Ricerca":
+      return ModuloRicerca()
+    elif tipo_modulo == "Supporto Vitale":
+      return ModuloSupportoVitale()
+    else:
+      raise ValueError(f"Tipo modulo non valido: {tipo_modulo}")
+
+# Test della Factory
+factory = FactoryModuliSpaziali()
+
+modulo_esplorazione = factory.crea_modulo("Esplorazione")
+print(f"Modulo creato: {modulo_esplorazione.nome}")
+
+modulo_difesa = factory.crea_modulo("Difesa")
+print(f"Modulo creato: {modulo_difesa.nome}")
+
+modulo_ricerca = factory.crea_modulo("Ricerca")
+print(f"Modulo creato: {modulo_ricerca.nome}")
+
+try:
+  factory.crea_modulo("Non Valido")
+except ValueError as e:
+  print(f"Errore: {e}")

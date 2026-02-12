@@ -1,0 +1,1 @@
+lista_numeri = (1,4,8,9)
