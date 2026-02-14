@@ -1,0 +1,1 @@
+Esercitazioni mie eseguite seguendo le lezioni del corso di Python del professore Alessandro Bemporad su Udemy Academy, più altre esercitazioni del corso su youtube di Edoardo Midali e altre esercitazioni mie sulla statistica.
